@@ -1,17 +1,41 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard Admin') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+    {{-- Top Navbar --}}
+    <nav class="bg-blue-800 text-white px-6 py-4 flex justify-between items-center shadow">
+        <div class="text-xl font-bold">Admin Dashboard</div>
+        <div class="flex items-center space-x-4">
+            <span>{{ Auth::user()->name }}</span>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded">Logout</button>
+            </form>
         </div>
+    </nav>
+
+    {{-- Main Content --}}
+    <div class="flex flex-1">
+        {{-- Sidebar --}}
+        <aside class="w-64 bg-white shadow-md p-6 space-y-4">
+            <a href="{{ route('categories.index') }}" class="block hover:text-blue-600 font-medium">Book Categories</a>
+            <a href="{{ route('books.index') }}" class="block hover:text-blue-600 font-medium">Book List</a>
+           <a href="{{ route('admin.users.index') }}" class="block hover:text-blue-600 font-medium">Users</a>
+           <a href="{{ route('admin.orders.index') }}" class="block hover:text-blue-600 font-medium">Orders</a>
+
+        </aside>
+
+        {{-- Page Content --}}
+        <main class="flex-1 p-6">
+            @yield('content')
+        </main>
     </div>
-</x-app-layout>
+
+</body>
+</html>
