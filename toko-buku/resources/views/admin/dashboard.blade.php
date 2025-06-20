@@ -24,8 +24,8 @@
     <div class="flex flex-1">
         {{-- Sidebar --}}
         <aside class="w-64 bg-white shadow-md p-6 space-y-4">
-            <a href="{{ route('categories.index') }}" class="block hover:text-blue-600 font-medium">Book Categories</a>
-            <a href="{{ route('books.index') }}" class="block hover:text-blue-600 font-medium">Book List</a>
+            <a href="{{ route('admin.categories.index') }}" class="block hover:text-blue-600 font-medium">Book Categories</a>
+            <a href="{{ route('admin.books.index') }}" class="block hover:text-blue-600 font-medium">Book List</a>
            <a href="{{ route('admin.users.index') }}" class="block hover:text-blue-600 font-medium">Users</a>
            <a href="{{ route('admin.orders.index') }}" class="block hover:text-blue-600 font-medium">Orders</a>
 

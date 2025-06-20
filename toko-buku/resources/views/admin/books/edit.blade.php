@@ -1,4 +1,4 @@
-<form action="{{ route('books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
     @csrf @method('PUT')
     <input name="title" value="{{ $book->title }}" required>
     <input name="author" value="{{ $book->author }}" required>
